@@ -13,3 +13,16 @@ Most of the script is configurable using environment variables except the Certif
 | TOPIC_HUM            | Humidity MQTT Topic                          | kitchen/humidity    |
 | TOPIC_ERRORS         | Errors MQTT Topic                            | kitchen/errors      |
 | DHT_PIN              | PIN where DHT data PIN is connected to       | 4                   |
+
+### How to run
+#### Clone Repo
+`git clone https://github.com/scudelletti/humidity-temperature-sensor-python.git`
+
+#### Enter project folder
+`cd humidity-temperature-sensor-python`
+
+#### Install libraries
+`pip3 install -r requirements.txt`
+
+#### After exporting the environment variables run:
+`python3 app.py`
