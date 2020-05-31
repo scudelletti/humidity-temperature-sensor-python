@@ -24,3 +24,6 @@ Most of the script is configurable using environment variables.
 
 #### After exporting the environment variables run:
 `python3 app.py`
+
+### Build Image
+`docker buildx build . -t scudelletti/sensor-humidity-temperature:latest`
