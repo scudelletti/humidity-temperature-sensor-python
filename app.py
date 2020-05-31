@@ -20,8 +20,6 @@ TOPIC_PREFIX = os.environ.get('TOPIC_PREFIX')
 DHT_PIN = int(os.environ.get('DHT_PIN'))
 DHT_SENSOR = Adafruit_DHT.DHT22
 
-MQTT_TLS_CERT_PATH = "priv/mqtt-broker-ca-bundle.crt"
-
 TOPIC_DHT_TEMP = TOPIC_PREFIX + "/DHT22/temperature"
 TOPIC_DHT_HUM = TOPIC_PREFIX + "/DHT22/humidity"
 TOPIC_BME_TEMP = TOPIC_PREFIX + "/BME280/temperature"
@@ -37,7 +35,7 @@ bme280.load_calibration_params(I2C_BUS, BME_ADDRESS)
 while True:
     # Connect to MQTT
     client = paho.Client(MQTT_CLIENT_ID)
-    client.tls_set(MQTT_TLS_CERT_PATH)
+    client.tls_set()
     client.username_pw_set(MQTT_USER, MQTT_PASS)
     client.connect(MQTT_BROKER_HOST, MQTT_BROKER_PORT)
 
