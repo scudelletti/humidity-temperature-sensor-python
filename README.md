@@ -8,6 +8,7 @@ Most of the script is configurable using environment variables.
 | MQTT_PASS            | Password used to Authenticate to MQTT Broker | bar                 |
 | MQTT_BROKER_HOST     | MQTT Broker host                             | iot.eclipse.org     |
 | MQTT_BROKER_PORT     | MQTT Broker port                             | 8883                |
+| MQTT_TLS_ENABLE      | Enable TLS                                   | true                |
 | MQTT_CLIENT_ID       | Client identifier                            | kitchen-sensor      |
 | TOPIC_PREFIX         | MQTT Topic Prefix without last /             | kitchen             |
 | DHT_PIN              | PIN where DHT data PIN is connected to       | 4                   |

@@ -13,6 +13,7 @@ MQTT_USER = os.environ.get('MQTT_USER')
 MQTT_PASS = os.environ.get('MQTT_PASS')
 MQTT_BROKER_HOST = os.environ.get('MQTT_BROKER_HOST')
 MQTT_BROKER_PORT = int(os.environ.get('MQTT_BROKER_PORT'))
+MQTT_TLS_ENABLE = os.environ.get('MQTT_TLS_ENABLE') == "true"
 
 MQTT_CLIENT_ID = os.environ.get('MQTT_CLIENT_ID')
 TOPIC_PREFIX = os.environ.get('TOPIC_PREFIX')
@@ -35,7 +36,10 @@ bme280.load_calibration_params(I2C_BUS, BME_ADDRESS)
 while True:
     # Connect to MQTT
     client = paho.Client(MQTT_CLIENT_ID)
-    client.tls_set()
+
+    if MQTT_TLS_ENABLE:
+        client.tls_set()
+
     client.username_pw_set(MQTT_USER, MQTT_PASS)
     client.connect(MQTT_BROKER_HOST, MQTT_BROKER_PORT)
 
